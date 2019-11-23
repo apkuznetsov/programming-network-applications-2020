@@ -274,7 +274,7 @@ __pycache__/
 # End of https://www.gitignore.io/api/aspnetcore
 
 .vs/
-.json
-.csproj
-.sln
+*.json
+*.csproj
+*.sln
 wwwroot/lib/
