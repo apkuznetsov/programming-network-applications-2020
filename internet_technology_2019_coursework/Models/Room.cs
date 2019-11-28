@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 public class Room
 {
-	public int RoomLocation { get; set; }
+    [Key]
+    public int RoomLocation { get; set; }
 
     public int NumberOfPeople { get; set; }
 

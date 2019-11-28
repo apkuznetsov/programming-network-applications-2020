@@ -1,11 +1,15 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 public class Booking
 {
-	public int RoomLocation { get; set; }
+    [Key]
+    public int RoomLocation { get; set; }
 
+    [Key]
     public DateTime ArrivalDateTime { get; set; }
 
+    [Key]
     public DateTime DepartureDateTime { get; set; }
 
     public DateTime BookingDateTime { get; set; }
