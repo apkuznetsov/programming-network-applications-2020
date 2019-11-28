@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Data.Entity;
 
-namespace internet_technology_2019_coursework.Models
+namespace HotelWebApplication.Models
 {
     public class HotelContext : DbContext
     {
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(DbModelBuilder builder)
         {
             builder.Entity<Booking>().HasKey(table => new {
                 table.RoomLocation,

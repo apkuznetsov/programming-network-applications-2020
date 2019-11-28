@@ -1,27 +1,26 @@
-
 *.sln
-*.asax
 *.csproj
 *.user
 *.config
 
+.vs/
 packages/
 
-internet_technology_2019_coursework/App_Start/
-internet_technology_2019_coursework/fonts/
-internet_technology_2019_coursework/bin/
-internet_technology_2019_coursework/obj/
-internet_technology_2019_coursework/Scripts/
+HotelWebApplication/fonts/
+HotelWebApplication/bin/
+HotelWebApplication/obj/
+HotelWebApplication/Scripts/
+HotelWebApplication/Properties/
+HotelWebApplication/App_Data/
+HotelWebApplication/App_Start/
 
-internet_technology_2019_coursework/Content/bootstrap-theme.css
-internet_technology_2019_coursework/Content/bootstrap-theme.css.map
-internet_technology_2019_coursework/Content/bootstrap-theme.min.css
-internet_technology_2019_coursework/Content/bootstrap-theme.min.css.map
-internet_technology_2019_coursework/Content/bootstrap.css
-internet_technology_2019_coursework/Content/bootstrap.css.map
-internet_technology_2019_coursework/Content/bootstrap.min.css
-internet_technology_2019_coursework/Content/bootstrap.min.css.map
+HotelWebApplication/Content/bootstrap-theme.css
+HotelWebApplication/Content/bootstrap-theme.css.map
+HotelWebApplication/Content/bootstrap-theme.min.css
+HotelWebApplication/Content/bootstrap-theme.min.css.map
+HotelWebApplication/Content/bootstrap.css
+HotelWebApplication/Content/bootstrap.css.map
+HotelWebApplication/Content/bootstrap.min.css
+HotelWebApplication/Content/bootstrap.min.css.map
 
-internet_technology_2019_coursework/Global.asax.cs
-
-internet_technology_2019_coursework/Properties/
+HotelWebApplication/Global.asax.cs

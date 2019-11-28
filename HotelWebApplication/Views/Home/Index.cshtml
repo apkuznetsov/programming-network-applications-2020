@@ -1,0 +1,36 @@
+﻿@{
+Layout = null;
+}
+ 
+<!DOCTYPE html>
+ 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Гостиница</title>
+</head>
+<body>
+<div>
+    <h3>Список номеров</h3>
+    <table>
+        <tr>
+            <td><p>расположение номера</p></td>
+            <td><p>количество мест</p></td>
+            <td><p>стоимость за сутки</p></td>
+            <td><p>дополнительная информация</p></td>
+            <td></td>
+        </tr>
+        @foreach (var r in ViewBag.Rooms)
+        {
+        <tr>
+            <td><p>@r.RoomLocation</p></td>
+            <td><p>@r.NumberOfPeople</p></td>
+            <td><p>@r.CostPerDay</p></td>
+            <td><p>@r.AdditionalInfo</p></td>
+            <td><p><a href="/Home/Book/@r.RoomLocation">Купить</a></p></td>
+        </tr>
+        }
+    </table>
+</div>
+</body>
+</html>
