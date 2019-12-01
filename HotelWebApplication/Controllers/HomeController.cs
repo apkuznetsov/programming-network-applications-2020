@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 
 namespace HotelWebApplication.Controllers
@@ -17,6 +16,23 @@ namespace HotelWebApplication.Controllers
             ViewBag.Rooms = rooms;
 
             return View();
+        }
+
+        [HttpGet] public ActionResult Book(int id)
+        {
+            ViewBag.BookingId = id;
+
+            return View();
+        }
+
+        [HttpPost] public string Book(Booking booking)
+        {
+            booking.BookingDateTime = DateTime.Now;
+
+            db.Bookings.Add(booking);
+            db.SaveChanges();
+
+            return "номер забронирован";
         }
     }
 }

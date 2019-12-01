@@ -1,15 +1,7 @@
 ﻿@{
-Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
-<!DOCTYPE html>
- 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Гостиница</title>
-</head>
-<body>
+
 <div>
     <h3>Список номеров</h3>
     <table>
@@ -22,15 +14,13 @@ Layout = null;
         </tr>
         @foreach (var r in ViewBag.Rooms)
         {
-        <tr>
-            <td><p>@r.RoomLocation</p></td>
-            <td><p>@r.NumberOfPeople</p></td>
-            <td><p>@r.CostPerDay</p></td>
-            <td><p>@r.AdditionalInfo</p></td>
-            <td><p><a href="/Home/Book/@r.RoomLocation">Купить</a></p></td>
-        </tr>
+            <tr>
+                <td><p>@r.RoomLocation</p></td>
+                <td><p>@r.NumberOfPeople</p></td>
+                <td><p>@r.CostPerDay</p></td>
+                <td><p>@r.AdditionalInfo</p></td>
+                <td><p><a href="/Home/Book/@r.RoomLocation">Купить</a></p></td>
+            </tr>
         }
     </table>
 </div>
-</body>
-</html>
