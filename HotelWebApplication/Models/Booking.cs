@@ -5,15 +5,17 @@ namespace HotelWebApplication.Models
 {
     public class Booking
     {
-        [Key] public int RoomLocation { get; set; }
+        [Key] public int Id { get; set; }
 
-        [Key] public DateTime ArrivalDateTime { get; set; }
+        public virtual Client Client { get; set; }
 
-        [Key] public DateTime DepartureDateTime { get; set; }
+        public virtual Room Room { get; set; }
 
         public DateTime BookingDateTime { get; set; }
 
-        public int ClientPassportSeriesAndNumber { get; set; }
+        public DateTime ArrivalDateTime { get; set; }
+
+        public DateTime DepartureDateTime { get; set; }
 
         public int OrderPrice { get; set; }
     }

@@ -4,7 +4,9 @@ namespace HotelWebApplication.Models
 {
     public class Admin
     {
-        [Key] public string Login { get; set; }
+        [Key] public int Id { get; set; }
+
+        public string Login { get; set; }
 
         public string Password { get; set; }
     }
