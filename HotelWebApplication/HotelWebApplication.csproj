@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,6 +145,18 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Other\logo.png" />
+    <Content Include="Content\Rooms\room0.jpg" />
+    <Content Include="Content\Rooms\room1.jpg" />
+    <Content Include="Content\Rooms\room10.jpg" />
+    <Content Include="Content\Rooms\room2.jpg" />
+    <Content Include="Content\Rooms\room3.jpg" />
+    <Content Include="Content\Rooms\room4.jpg" />
+    <Content Include="Content\Rooms\room5.jpg" />
+    <Content Include="Content\Rooms\room6.jpg" />
+    <Content Include="Content\Rooms\room7.jpg" />
+    <Content Include="Content\Rooms\room8.jpg" />
+    <Content Include="Content\Rooms\room9.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -173,7 +186,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Book.cshtml" />
+    <Content Include="Views\Booking\Edit.cshtml" />
+    <Content Include="Views\Home\EditRoom.cshtml" />
+    <Content Include="Views\Booking\Book.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
