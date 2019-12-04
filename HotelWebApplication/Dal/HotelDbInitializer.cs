@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+using System;
+using System.Data.Entity;
 using HotelWebApplication.Dal;
 
 namespace HotelWebApplication.Models
@@ -18,7 +19,7 @@ namespace HotelWebApplication.Models
                 Name = "Стандартный двухместный номер с 1 кроватью или 2 отдельными кроватями",
                 NumberOfPeople = 2,
                 CostPerDay = 2000,
-                Photo = "~/Content/Rooms/room0.jpg",
+                Photo = "/Content/Rooms/room0.jpg",
                 AdditionalInfo =
                 "Ванная комната в номере\n" +
                 "Бесплатная парковка\n" +
@@ -33,7 +34,7 @@ namespace HotelWebApplication.Models
                 Name = "Стандартный двухместный номер с 2 отдельными кроватями",
                 NumberOfPeople = 2,
                 CostPerDay = 2000,
-                Photo = "~/Content/Rooms/room1.jpg",
+                Photo = "/Content/Rooms/room1.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -48,7 +49,7 @@ namespace HotelWebApplication.Models
                 Name = "Двухместный номер с 1 кроватью",
                 NumberOfPeople = 2,
                 CostPerDay = 2100,
-                Photo = "~/Content/Rooms/room2.jpg",
+                Photo = "/Content/Rooms/room2.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -63,7 +64,7 @@ namespace HotelWebApplication.Models
                 Name = "Двухместный номер «Комфорт» с 1 кроватью или 2 отдельными кроватями",
                 NumberOfPeople = 2,
                 CostPerDay = 2200,
-                Photo = "~/Content/Rooms/room3.jpg",
+                Photo = "/Content/Rooms/room3.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -78,7 +79,7 @@ namespace HotelWebApplication.Models
                 Name = "Номер-студио",
                 NumberOfPeople = 2,
                 CostPerDay = 2400,
-                Photo = "~/Content/Rooms/room4.jpg",
+                Photo = "/Content/Rooms/room4.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -96,7 +97,7 @@ namespace HotelWebApplication.Models
                 Name = "Улучшенный двухместный номер с 1 кроватью",
                 NumberOfPeople = 2,
                 CostPerDay = 2500,
-                Photo = "~/Content/Rooms/room5.jpg",
+                Photo = "/Content/Rooms/room5.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -113,7 +114,7 @@ namespace HotelWebApplication.Models
                 Name = "Полулюкс с балконом",
                 NumberOfPeople = 2,
                 CostPerDay = 2600,
-                Photo = "~/Content/Rooms/room6.jpg",
+                Photo = "/Content/Rooms/room6.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -132,7 +133,7 @@ namespace HotelWebApplication.Models
                 Name = "Бунгало Делюкс",
                 NumberOfPeople = 2,
                 CostPerDay = 2900,
-                Photo = "~/Content/Rooms/room7.jpg",
+                Photo = "/Content/Rooms/room7.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -149,7 +150,7 @@ namespace HotelWebApplication.Models
                 Name = "Люкс с балконом",
                 NumberOfPeople = 2,
                 CostPerDay = 3500,
-                Photo = "~/Content/Rooms/room8.jpg",
+                Photo = "/Content/Rooms/room8.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -168,7 +169,7 @@ namespace HotelWebApplication.Models
                 Name = "Стандартный одноместный номер",
                 NumberOfPeople = 1,
                 CostPerDay = 1700,
-                Photo = "~/Content/Rooms/room9.jpg",
+                Photo = "/Content/Rooms/room9.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
@@ -185,7 +186,7 @@ namespace HotelWebApplication.Models
                 Name = "Улучшенный одноместный номер",
                 NumberOfPeople = 1,
                 CostPerDay = 1800,
-                Photo = "~/Content/Rooms/room10.jpg",
+                Photo = "/Content/Rooms/room10.jpg",
                 AdditionalInfo =
                 "Собственная ванная комната\n" +
                 "Бесплатная парковка\n" +
