@@ -3,24 +3,29 @@
 }
 
 <div>
-    <h3>Список номеров</h3>
-    <table>
+    <p>Список номеров</p>
+    <table class="room-foreach">
         <tr>
-            <td><p>расположение номера</p></td>
-            <td><p>количество мест</p></td>
-            <td><p>стоимость за сутки</p></td>
-            <td><p>дополнительная информация</p></td>
+            <td><p>Расположение номера</p></td>
+            <td><p>Количество мест</p></td>
+            <td><p>Стоимость за сутки</p></td>
+            <td><p>Дополнительная информация</p></td>
+            <td><p>Фото</p></td>
+            <td></td>
             <td></td>
         </tr>
         @foreach (var r in ViewBag.Rooms)
         {
-            <tr>
-                <td><p>@r.RoomLocation</p></td>
-                <td><p>@r.NumberOfPeople</p></td>
-                <td><p>@r.CostPerDay</p></td>
-                <td><p>@r.AdditionalInfo</p></td>
-                <td><p><a href="/Home/Book/@r.RoomLocation">Купить</a></p></td>
-            </tr>
+        <tr>
+            <td><p>@r.Name</p></td>
+            <td><p>@r.NumberOfPeople</p></td>
+            <td><p>@r.CostPerDay</p></td>
+            <td><p>@r.AdditionalInfo</p></td>
+            <td><img src="@r.Photo" /></td>
+
+            <td><p><a href="/Booking/Book/@r.Id">Забронировать</a></p></td>
+            <td><p><a href="/Room/Edit/@r.Id">Редактировать</a></p></td>
+        </tr>
         }
     </table>
 </div>
