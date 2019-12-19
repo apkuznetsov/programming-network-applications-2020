@@ -49,19 +49,19 @@ namespace HotelWebApplication.Controllers
             {
                 model.PhotoUrl = ImageSaveHelper.SaveImage(imageData);
             }
-            else
-            {
-                oldRoom = db.Rooms.Find(model.Id);
-                model.PhotoUrl = oldRoom.PhotoUrl;
-            }
+            //else
+            //{
+            //    oldRoom = db.Rooms.Find(model.Id);
+            //    model.PhotoUrl = oldRoom.PhotoUrl;
+            //}
 
             if (ModelState.IsValid)
             {
-                if (!areRoomsEqual(oldRoom, model))
-                {
+                //if (!areRoomsEqual(oldRoom, model))
+                //{
                     db.Entry(model).State = EntityState.Modified;
                     db.SaveChanges();
-                }
+                //}
 
                 return RedirectToAction("All");
             }
@@ -69,27 +69,27 @@ namespace HotelWebApplication.Controllers
             return View("Edit", model);
         }
 
-        private bool areRoomsEqual(Room r1, Room r2)
-        {
-            if (r1 == null)
-                return false;
-            if (r2 == null)
-                return false;
+        //private bool areRoomsEqual(Room r1, Room r2)
+        //{
+        //    if (r1 == null)
+        //        return false;
+        //    if (r2 == null)
+        //        return false;
 
-            if (r1.Id != r2.Id)
-                return false;
-            if (r1.Name != r2.Name)
-                return false;
-            if (r1.NumberOfPeople != r2.NumberOfPeople)
-                return false;
-            if (r1.CostPerDay != r2.CostPerDay)
-                return false;
-            if (r1.PhotoUrl != r2.PhotoUrl)
-                return false;
-            if (r1.Description != r2.Description)
-                return false;
+        //    if (r1.Id != r2.Id)
+        //        return false;
+        //    if (r1.Name != r2.Name)
+        //        return false;
+        //    if (r1.NumberOfPeople != r2.NumberOfPeople)
+        //        return false;
+        //    if (r1.CostPerDay != r2.CostPerDay)
+        //        return false;
+        //    if (r1.PhotoUrl != r2.PhotoUrl)
+        //        return false;
+        //    if (r1.Description != r2.Description)
+        //        return false;
 
-            return true;
-        }
+        //    return true;
+        //}
     }
 }
