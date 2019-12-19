@@ -127,7 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ImageSaver.cs" />
+    <Compile Include="Helpers\ImageSaveHelper.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Client.cs" />
