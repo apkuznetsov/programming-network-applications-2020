@@ -10,6 +10,10 @@ namespace HotelWebApplication.Controllers
     public class HomeController : Controller
     {
         private HotelContext db = new HotelContext();
-   
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("All", "Room");
+        }
     }
 }

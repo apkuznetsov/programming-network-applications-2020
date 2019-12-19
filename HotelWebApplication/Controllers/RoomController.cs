@@ -43,7 +43,7 @@ namespace HotelWebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(Room model, HttpPostedFileBase imageData)
         {
-            Room oldRoom = null;
+            //Room oldRoom = null;
 
             if (imageData != null)
             {
@@ -59,8 +59,8 @@ namespace HotelWebApplication.Controllers
             {
                 //if (!areRoomsEqual(oldRoom, model))
                 //{
-                    db.Entry(model).State = EntityState.Modified;
-                    db.SaveChanges();
+                db.Entry(model).State = EntityState.Modified;
+                db.SaveChanges();
                 //}
 
                 return RedirectToAction("All");
