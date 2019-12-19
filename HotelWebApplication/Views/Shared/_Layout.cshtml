@@ -27,6 +27,9 @@
                 <table class="my-main-menu-table">
                     <tr>
                         <td>
+                            @Html.ActionLink("Список номеров", "All", "Room")
+                        </td>
+                        <td>
                             @Html.ActionLink("Главная", "Index", "Home")
                         </td>
                         <td>
@@ -39,7 +42,9 @@
                 </table>
             </div>
 
-            @RenderBody()
+            <div class="my-main-content">
+                @RenderBody()
+            </div>
         </div>
     </div>
 </body>
