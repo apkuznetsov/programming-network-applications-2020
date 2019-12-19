@@ -19,14 +19,14 @@ namespace HotelWebApplication.Models
                 Name = "Стандартный двухместный номер с 1 кроватью или 2 отдельными кроватями",
                 NumberOfPeople = 2,
                 CostPerDay = 2000,
-                Photo = "/Content/Rooms/room0.jpg",
-                AdditionalInfo =
-                "Ванная комната в номере\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 24 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
+                PhotoUrl = "/Content/Rooms/room0.jpg",
+                Description =
+                "Ванная комната в номере" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 24 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
                 "Курение: запрещено"
             }); // 0
             db.Rooms.Add(new Room
@@ -34,14 +34,14 @@ namespace HotelWebApplication.Models
                 Name = "Стандартный двухместный номер с 2 отдельными кроватями",
                 NumberOfPeople = 2,
                 CostPerDay = 2000,
-                Photo = "/Content/Rooms/room1.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 22 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
+                PhotoUrl = "/Content/Rooms/room1.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 22 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
                 "Курение: запрещено"
             }); // 1
             db.Rooms.Add(new Room
@@ -49,14 +49,14 @@ namespace HotelWebApplication.Models
                 Name = "Двухместный номер с 1 кроватью",
                 NumberOfPeople = 2,
                 CostPerDay = 2100,
-                Photo = "/Content/Rooms/room2.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 26 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
+                PhotoUrl = "/Content/Rooms/room2.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 26 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
                 "Курение: запрещено"
             }); // 2
             db.Rooms.Add(new Room
@@ -64,14 +64,14 @@ namespace HotelWebApplication.Models
                 Name = "Двухместный номер «Комфорт» с 1 кроватью или 2 отдельными кроватями",
                 NumberOfPeople = 2,
                 CostPerDay = 2200,
-                Photo = "/Content/Rooms/room3.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 25 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
+                PhotoUrl = "/Content/Rooms/room3.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 25 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
                 "Курение: запрещено"
             }); // 3
             db.Rooms.Add(new Room
@@ -79,17 +79,17 @@ namespace HotelWebApplication.Models
                 Name = "Номер-студио",
                 NumberOfPeople = 2,
                 CostPerDay = 2400,
-                Photo = "/Content/Rooms/room4.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 25 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
-                "Курение: запрещено\n" +
-                "\n" +
-                "Номер-студио с кондиционером, телевизором и отдельным входом. Ванная комната укомплектована феном и бесплатными туалетно-косметическими принадлежностями.\n" +
+                PhotoUrl = "/Content/Rooms/room4.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 25 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
+                "Курение: запрещено" + Environment.NewLine +
+                 Environment.NewLine +
+                "Номер-студио с кондиционером, телевизором и отдельным входом. Ванная комната укомплектована феном и бесплатными туалетно-косметическими принадлежностями." + Environment.NewLine +
                 "Мини-кухня оснащена чайником, микроволновой печью и холодильником."
             }); // 4
             db.Rooms.Add(new Room
@@ -97,15 +97,15 @@ namespace HotelWebApplication.Models
                 Name = "Улучшенный двухместный номер с 1 кроватью",
                 NumberOfPeople = 2,
                 CostPerDay = 2500,
-                Photo = "/Content/Rooms/room5.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 25 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
-                "Курение: запрещено\n" +
+                PhotoUrl = "/Content/Rooms/room5.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 25 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
+                "Курение: запрещено" + Environment.NewLine +
                 "\n" +
                 "Номер с 2 отдельными кроватями и отдельным входом."
             }); // 5
@@ -114,18 +114,18 @@ namespace HotelWebApplication.Models
                 Name = "Полулюкс с балконом",
                 NumberOfPeople = 2,
                 CostPerDay = 2600,
-                Photo = "/Content/Rooms/room6.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 28 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
-                "Курение: запрещено\n" +
-                "\n" +
-                "Полулюкс располагает кондиционером, телевизором с плоским экраном и собственной ванной комнатой.\n" +
-                "\n" +
+                PhotoUrl = "/Content/Rooms/room6.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 28 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
+                "Курение: запрещено" + Environment.NewLine +
+                Environment.NewLine +
+                "Полулюкс располагает кондиционером, телевизором с плоским экраном и собственной ванной комнатой." + Environment.NewLine +
+                Environment.NewLine +
                 "К услугам гостей балкон и гостиная зона с диваном."
             }); // 6
             db.Rooms.Add(new Room
@@ -133,16 +133,16 @@ namespace HotelWebApplication.Models
                 Name = "Бунгало Делюкс",
                 NumberOfPeople = 2,
                 CostPerDay = 2900,
-                Photo = "/Content/Rooms/room7.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 35 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
-                "Курение: запрещено\n" +
-                "\n" +
+                PhotoUrl = "/Content/Rooms/room7.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 35 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
+                "Курение: запрещено" + Environment.NewLine +
+                Environment.NewLine +
                 "В этом отдельном доме имеется терраса. Предоставляется бесплатная частная парковка."
             }); // 7
             db.Rooms.Add(new Room
@@ -150,18 +150,18 @@ namespace HotelWebApplication.Models
                 Name = "Люкс с балконом",
                 NumberOfPeople = 2,
                 CostPerDay = 3500,
-                Photo = "/Content/Rooms/room8.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 34 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
-                "Курение: запрещено\n" +
-                "\n" +
-                "Люкс располагает кондиционером, телевизором с плоским экраном и собственной ванной комнатой." +
-                "\n" +
+                PhotoUrl = "/Content/Rooms/room8.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 34 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
+                "Курение: запрещено" + Environment.NewLine +
+                Environment.NewLine +
+                "Люкс располагает кондиционером, телевизором с плоским экраном и собственной ванной комнатой." + Environment.NewLine +
+                Environment.NewLine +
                 "К услугам гостей балкон и гостиная."
             }); // 8
             db.Rooms.Add(new Room
@@ -169,16 +169,16 @@ namespace HotelWebApplication.Models
                 Name = "Стандартный одноместный номер",
                 NumberOfPeople = 1,
                 CostPerDay = 1700,
-                Photo = "/Content/Rooms/room9.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 14 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
-                "Курение: запрещено\n" +
-                "\n" +
+                PhotoUrl = "/Content/Rooms/room9.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 14 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
+                "Курение: запрещено" + Environment.NewLine +
+                Environment.NewLine +
                 "Номер с кондиционером, телевизором с плоским экраном и собственной ванной комнатой."
             }); // 9
             db.Rooms.Add(new Room
@@ -186,14 +186,14 @@ namespace HotelWebApplication.Models
                 Name = "Улучшенный одноместный номер",
                 NumberOfPeople = 1,
                 CostPerDay = 1800,
-                Photo = "/Content/Rooms/room10.jpg",
-                AdditionalInfo =
-                "Собственная ванная комната\n" +
-                "Бесплатная парковка\n" +
-                "Размер номера 16 м²\n" +
-                "Телефон\n" +
-                "Кондиционер\n" +
-                "Электрический чайник\n" +
+                PhotoUrl = "/Content/Rooms/room10.jpg",
+                Description =
+                "Собственная ванная комната" + Environment.NewLine +
+                "Бесплатная парковка" + Environment.NewLine +
+                "Размер номера 16 м²" + Environment.NewLine +
+                "Телефон" + Environment.NewLine +
+                "Кондиционер" + Environment.NewLine +
+                "Электрический чайник" + Environment.NewLine +
                 "Курение: запрещено"
             }); // 10
 
