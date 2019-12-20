@@ -276,7 +276,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Room\All.cshtml" />
     <Content Include="Views\Booking\Edit.cshtml" />
-    <Content Include="Views\Booking\Book.cshtml" />
     <Content Include="Views\Room\Edit.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -288,6 +287,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Room\Book.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
