@@ -1,4 +1,4 @@
-﻿using HotelWebApplication.Dal;
+using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 using HotelWebApplication.Helpers;
 using System.Collections.Generic;
@@ -35,7 +35,6 @@ namespace HotelWebApplication.Controllers
             Room room = db.Rooms.Find(id);
             if (room != null)
             {
-                ViewBag.PhotoUrl = room.PhotoUrl;
                 return View(room);
             }
 
@@ -95,11 +94,11 @@ namespace HotelWebApplication.Controllers
         //}
         #endregion /редактирование
 
-        [HttpGet]
-        public ActionResult Book()
-        {
-            return HttpNotFound();
-        }
+        //[HttpGet]
+        //public ActionResult Book()
+        //{
+        //    return HttpNotFound();
+        //}
 
         [HttpGet]
         public ActionResult Book(int? id)
