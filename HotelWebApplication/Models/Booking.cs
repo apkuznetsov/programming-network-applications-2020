@@ -7,9 +7,11 @@ namespace HotelWebApplication.Models
     {
         [Key] public int Id { get; set; }
 
-        public virtual Client Client { get; set; }
+        public int ClientPassportSeriesAndNumber { get; set; }
 
-        public virtual Room Room { get; set; }
+        public string ClientName { get; set; }
+
+        public int RoomId { get; set; }
 
         public DateTime BookingDateTime { get; set; }
 
