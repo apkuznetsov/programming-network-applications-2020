@@ -1,4 +1,4 @@
-﻿using HotelWebApplication.Dal;
+using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 using HotelWebApplication.Helpers;
 using System.Collections.Generic;
@@ -91,5 +91,43 @@ namespace HotelWebApplication.Controllers
 
         //    return true;
         //}
+        [HttpGet]
+        public ActionResult Book()
+        {
+            return HttpNotFound();
+        }
+
+        [HttpGet]
+        public ActionResult Book(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            Room room = db.Rooms.Find(id);
+            if (room != null)
+            {
+                return View();
+            }
+
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public ActionResult Book(Booking model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.BookingDateTime = DateTime.Now;
+
+                db.Bookings.Add(model);
+                db.SaveChanges();
+
+                return RedirectToAction("All", "Room");
+            }
+
+            return View("Book", model);
+        }
     }
 }
