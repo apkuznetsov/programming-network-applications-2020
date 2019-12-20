@@ -16,16 +16,19 @@
         </tr>
         @foreach (var r in ViewBag.Rooms)
         {
-        <tr>
-            <td><p>@r.Name</p></td>
-            <td><p>@r.NumberOfPeople</p></td>
-            <td><p>@r.CostPerDay</p></td>
-            <td><p>@r.Description</p></td>
-            <td><img src="@r.PhotoUrl" /></td>
+            <tr>
+                <td><p>@r.Name</p></td>
+                <td><p>@r.NumberOfPeople</p></td>
+                <td><p>@r.CostPerDay</p></td>
+                <td><p>@r.Description</p></td>
+                <td><img src="@r.PhotoUrl" /></td>
 
-            <td><p><a href="/Booking/Book/@r.Id">Забронировать</a></p></td>
-            <td><p><a href="/Room/Edit/@r.Id">Редактировать</a></p></td>
-        </tr>
+                @*<td><p><a href="/Booking/Book/@r.Id">Забронировать</a></p></td>
+                    <td><p><a href="/Room/Edit/@r.Id">Редактировать</a></p></td>*@
+
+                <td><p>@Html.ActionLink("Забронировать", "Book", "Room", new { id = @r.Id }, null)</p></td>
+                <td><p>@Html.ActionLink("Редактировать", "Edit", "Room", new { id = @r.Id }, null)</p></td>
+            </tr>
         }
     </table>
 </div>
