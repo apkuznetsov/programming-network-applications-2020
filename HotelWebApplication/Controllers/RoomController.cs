@@ -1,4 +1,4 @@
-using HotelWebApplication.Dal;
+﻿using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 using HotelWebApplication.Helpers;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
+using System;
 
 namespace HotelWebApplication.Controllers
 {
@@ -22,6 +23,7 @@ namespace HotelWebApplication.Controllers
             return View();
         }
 
+        #region редактирование
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -91,6 +93,8 @@ namespace HotelWebApplication.Controllers
 
         //    return true;
         //}
+        #endregion /редактирование
+
         [HttpGet]
         public ActionResult Book()
         {
