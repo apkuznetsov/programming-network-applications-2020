@@ -11,7 +11,7 @@ namespace HotelWebApplication.Models
         public int ClientPassportSeriesAndNumber { get; set; }
 
         [Display(Name = "ФИО клиента")]
-        public string ClientName { get; set; }
+        public string ClientFullName { get; set; }
 
         [Display(Name = "Номер комнаты")]
         public int RoomId { get; set; }
