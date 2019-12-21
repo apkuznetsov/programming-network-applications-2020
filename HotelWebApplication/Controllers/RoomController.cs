@@ -14,6 +14,11 @@ namespace HotelWebApplication.Controllers
     {
         private HotelContext db = new HotelContext();
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("All", "Room");
+        }
+
         [HttpGet]
         public ActionResult All()
         {
