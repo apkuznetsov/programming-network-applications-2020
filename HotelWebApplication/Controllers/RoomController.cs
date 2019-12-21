@@ -1,4 +1,4 @@
-using HotelWebApplication.Dal;
+﻿using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 using HotelWebApplication.Helpers;
 using System.Collections.Generic;
@@ -63,13 +63,13 @@ namespace HotelWebApplication.Controllers
         public ActionResult Book(int? id)
         {
             if (id == null)
-            {
                 return HttpNotFound();
-            }
 
             Room room = db.Rooms.Find(id);
             if (room != null)
             {
+                ViewBag.RoomId = room.Id;
+
                 return View();
             }
 
@@ -79,17 +79,53 @@ namespace HotelWebApplication.Controllers
         [HttpPost]
         public ActionResult Book(Booking model)
         {
-            if (ModelState.IsValid)
+            model.BookingDateTime = DateTime.Now;
+
+            #region проверка номера комнаты
+            Room room = db.Rooms.
+                FirstOrDefault(
+                r => r.Id == model.RoomId);
+
+            if (room == null)
             {
-                model.BookingDateTime = DateTime.Now;
-
-                db.Bookings.Add(model);
-                db.SaveChanges();
-
-                return RedirectToAction("All", "Room");
+                ModelState.AddModelError(string.Empty, "Комната под таким номером не существует");
+                return View("Book", model);
             }
 
-            return View("Book", model);
+            #endregion /проверка номера комнаты
+
+            #region проверка клиента
+            Client client = db.Clients.
+                FirstOrDefault(
+                c => c.PassportSeriesAndNumber == model.ClientPassportSeriesAndNumber);
+
+            if (client == null) // если нет такого -- создаём
+            {
+                int passportSeriesAndNumber = model.ClientPassportSeriesAndNumber;
+                string fullName = model.ClientFullName;
+                Client c = new Client
+                {
+                    PassportSeriesAndNumber = passportSeriesAndNumber,
+                    FullName = fullName
+                };
+
+                db.Clients.Add(c);
+            }
+            else // если есть -- проверяем ФИО
+            {
+                if (client.FullName != model.ClientFullName)
+                {
+                    ModelState.AddModelError(string.Empty, "ФИО клиента не соответсвует серии и номеру паспорта в базе");
+                    model.ClientFullName = client.FullName;
+                    return View("Book", model);
+                }
+            }
+            #endregion /проверка клиента
+
+            db.Bookings.Add(model);
+            db.SaveChanges();
+
+            return RedirectToAction("All", "Room");
         }
     }
 }
