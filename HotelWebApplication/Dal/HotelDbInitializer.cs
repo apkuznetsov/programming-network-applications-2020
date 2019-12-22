@@ -4,7 +4,7 @@ using HotelWebApplication.Dal;
 
 namespace HotelWebApplication.Models
 {
-    public class HotelDbInitializer : DropCreateDatabaseAlways<HotelContext>
+    public class HotelDbInitializer : DropCreateDatabaseIfModelChanges<HotelContext>
     {
         protected override void Seed(HotelContext db)
         {
