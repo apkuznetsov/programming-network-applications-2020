@@ -11,7 +11,7 @@ namespace HotelWebApplication.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("All", "Hotel");
+            return RedirectToAction("All", "Booking");
         }
 
         public ActionResult All()
@@ -20,6 +20,22 @@ namespace HotelWebApplication.Controllers
             ViewBag.Bookings = bookings;
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Booking b = db.Bookings.Find(id);
+
+            if (b == null)
+                return HttpNotFound();
+            else
+            {
+                db.Bookings.Remove(b);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("All", "Hotel");
         }
     }
 }
