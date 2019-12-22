@@ -28,13 +28,10 @@ namespace HotelWebApplication.Controllers
             {
                 // поиск пользователя в БД
                 User user = null;
-                using (UserContext db = new UserContext())
-                {
-                    user = db.Users.FirstOrDefault(
-                        u => u.Login == model.Name &&
-                        u.Password == model.Password);
+                user = db.Users.FirstOrDefault(
+                    u => u.Login == model.Name &&
+                    u.Password == model.Password);
 
-                }
 
                 if (user != null)
                 {
