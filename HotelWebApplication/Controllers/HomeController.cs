@@ -12,7 +12,7 @@ namespace HotelWebApplication.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("All", "Room");
+            return RedirectToAction("Login", "Home");
         }
 
         public ActionResult Login()
