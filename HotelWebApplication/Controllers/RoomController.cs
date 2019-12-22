@@ -14,12 +14,14 @@ namespace HotelWebApplication.Controllers
     {
         private HotelContext db = new HotelContext();
 
+        [Authorize()]
         public ActionResult Index()
         {
             return RedirectToAction("All", "Room");
         }
 
         [HttpGet]
+        [Authorize()]
         public ActionResult All()
         {
             IEnumerable<Room> rooms = db.Rooms;
@@ -65,6 +67,7 @@ namespace HotelWebApplication.Controllers
         #endregion /редактирование
 
         [HttpGet]
+        [Authorize()]
         public ActionResult Book(int? id)
         {
             if (id == null)
@@ -82,6 +85,7 @@ namespace HotelWebApplication.Controllers
         }
 
         [HttpPost]
+        [Authorize()]
         public ActionResult Book(Booking model)
         {
             model.BookingDateTime = DateTime.Now;

@@ -9,11 +9,13 @@ namespace HotelWebApplication.Controllers
     {
         private HotelContext db = new HotelContext();
 
+        [Authorize()]
         public ActionResult Index()
         {
             return RedirectToAction("All", "Booking");
         }
 
+        [Authorize()]
         public ActionResult All()
         {
             IEnumerable<Booking> bookings = db.Bookings;
@@ -23,6 +25,7 @@ namespace HotelWebApplication.Controllers
         }
 
         [HttpGet]
+        [Authorize()]
         public ActionResult Delete(int id)
         {
             Booking b = db.Bookings.Find(id);

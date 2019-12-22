@@ -9,11 +9,13 @@ namespace HotelWebApplication.Controllers
     {
         private HotelContext db = new HotelContext();
 
+        [Authorize()]
         public ActionResult Index()
         {
             return RedirectToAction("All", "Client");
         }
 
+        [Authorize()]
         public ActionResult All()
         {
             IEnumerable<Client> clients = db.Clients;
