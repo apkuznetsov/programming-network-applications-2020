@@ -8,12 +8,6 @@ namespace HotelWebApplication.Models
     {
         protected override void Seed(HotelContext db)
         {
-            db.Admins.Add(new Admin
-            {
-                Login = "admin",
-                Password = "password"
-            });
-
             db.Rooms.Add(new Room
             {
                 Name = "Стандартный двухместный номер с 1 кроватью или 2 отдельными кроватями",

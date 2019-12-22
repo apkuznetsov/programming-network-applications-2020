@@ -2,7 +2,7 @@
 
 namespace HotelWebApplication.Models
 {
-    public class Admin
+    public class User
     {
         [Key] public int Id { get; set; }
 
