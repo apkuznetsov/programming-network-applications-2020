@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Web.Mvc;
-using HotelWebApplication.Dal;
+﻿using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Security;
 
 namespace HotelWebApplication.Controllers
 {
@@ -14,6 +13,45 @@ namespace HotelWebApplication.Controllers
         public ActionResult Index()
         {
             return RedirectToAction("All", "Room");
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Login model)
+        {
+            if (ModelState.IsValid)
+            {
+                // поиск пользователя в БД
+                User user = null;
+                using (UserContext db = new UserContext())
+                {
+                    user = db.Users.FirstOrDefault(
+                        u => u.Login == model.Name &&
+                        u.Password == model.Password);
+
+                }
+
+                if (user != null)
+                {
+                    FormsAuthentication.SetAuthCookie(model.Name, true);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Logoff()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
