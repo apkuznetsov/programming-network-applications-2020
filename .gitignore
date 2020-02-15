@@ -255,5 +255,7 @@ _Pvt_Extensions
 *.sln.iml
 
 HotelWebApplication/Scripts/
+!HotelWebApplication/Scripts/index.d.ts
+
 HotelWebApplication/Content/
 HotelWebApplication/fonts/
