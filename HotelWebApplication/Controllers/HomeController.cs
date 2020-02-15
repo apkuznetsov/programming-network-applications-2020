@@ -36,7 +36,7 @@ namespace HotelWebApplication.Controllers
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(model.Name, true);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("All", "Room");
                 }
                 else
                     ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
@@ -45,7 +45,7 @@ namespace HotelWebApplication.Controllers
             return View(model);
         }
 
-        public ActionResult Logoff()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");

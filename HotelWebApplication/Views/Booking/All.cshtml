@@ -3,7 +3,7 @@
 }
 
 <div>
-        if (ViewBag.Bookings == null)
+        @if (ViewBag.Bookings == null)
         {
             <h1>Список бронирования пуст</h1>
         }
@@ -12,7 +12,7 @@
             <h1>Список номеров</h1>
             <table class="room-foreach">
                 <tr>
-                    <td><p>ИД бронирования</p></td>
+                    <td><p>ИН бронирования</p></td>
                     <td><p>Номер комнаты</p></td>
                     <td><p>Дата бронирования</p></td>
                     <td><p>Дата заезда</p></td>
@@ -40,5 +40,4 @@
                 }
             </table>
         }
-    }
 </div>
