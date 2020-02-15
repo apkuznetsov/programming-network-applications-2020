@@ -30,6 +30,20 @@ namespace HotelWebApplication.Controllers
             return View();
         }
 
+        [HttpPost]
+        [Authorize()]
+        public ActionResult Search(SearchViewModel search)
+        {
+            IEnumerable<Room> rooms = db.Rooms.
+                Where(
+                r => r.Name.Contains(search.SearchString) ||
+                r.Description.Contains(search.SearchString)).ToList();
+
+            ViewBag.Rooms = rooms;
+
+            return View("All");
+        }
+
         #region редактирование
         [HttpGet]
         public ActionResult Edit(int? id)
