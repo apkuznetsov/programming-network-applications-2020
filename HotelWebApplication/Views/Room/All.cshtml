@@ -3,6 +3,13 @@
 }
 
 <div>
+    @using (Html.BeginForm("Search", "Room", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+    {
+        <form class="navbar-nav pull-right">
+            <input type="text" name="SearchString" placeholder="Поиск..." class="search-field" />
+        </form>
+    }
+
     <h1>Список номеров</h1>
     <table class="room-foreach">
         <tr>
