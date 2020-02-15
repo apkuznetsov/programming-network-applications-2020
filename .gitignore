@@ -254,8 +254,12 @@ _Pvt_Extensions
 .idea/
 *.sln.iml
 
-HotelWebApplication/Scripts/
+HotelWebApplication/Scripts/*
 !HotelWebApplication/Scripts/index.d.ts
 
-HotelWebApplication/Content/
+HotelWebApplication/Content/*
+!HotelWebApplication/Content/Other
+!HotelWebApplication/Content/Rooms
+!HotelWebApplication/Content/Site.css
+
 HotelWebApplication/fonts/
