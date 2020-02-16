@@ -135,7 +135,11 @@ a img {
     height: 250px;
 }
 
-
+#loading {
+    display: none;
+    color: Red;
+    font-weight: bold;
+}
 
 
 
