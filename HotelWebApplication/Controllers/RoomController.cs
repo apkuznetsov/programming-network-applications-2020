@@ -1,4 +1,4 @@
-using HotelWebApplication.Dal;
+﻿using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 using HotelWebApplication.Helpers;
 using System.Collections.Generic;
@@ -39,9 +39,7 @@ namespace HotelWebApplication.Controllers
                 r => r.Name.Contains(search) ||
                 r.Description.Contains(search)).ToList();
 
-            ViewBag.Rooms = rooms;
-
-            return View("All");
+            return PartialView(rooms);
         }
 
         #region редактирование
