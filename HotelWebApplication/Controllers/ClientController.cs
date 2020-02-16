@@ -1,4 +1,4 @@
-﻿using HotelWebApplication.Dal;
+using HotelWebApplication.Dal;
 using HotelWebApplication.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +27,11 @@ namespace HotelWebApplication.Controllers
 
         [HttpPost]
         [Authorize()]
-        public ActionResult Search(SearchViewModel search)
+        public ActionResult Search(string search)
         {
             IEnumerable<Client> clients = db.Clients.
                 Where(
-                c => c.FullName.Contains(search.SearchString)).ToList();
+                c => c.FullName.Contains(search)).ToList();
 
             ViewBag.Clients = clients;
 
