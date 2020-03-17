@@ -41,38 +41,6 @@ namespace HotelWebApplication.Controllers
             return PartialView(rooms);
         }
 
-        #region редактирование
-
-        [HttpGet]
-        public ActionResult Edit(int? id)
-        {
-            if (id == null) return HttpNotFound();
-
-            var room = _db.Rooms.Find(id);
-            if (room != null) return View(room);
-
-            return HttpNotFound();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(Room model, HttpPostedFileBase imageData)
-        {
-            if (imageData != null)
-                model.PhotoUrl = ImageSaveHelper.SaveImage(imageData);
-
-            if (ModelState.IsValid)
-            {
-                _db.Entry(model).State = EntityState.Modified;
-                _db.SaveChanges();
-
-                return RedirectToAction("All");
-            }
-
-            return View("Edit", model);
-        }
-
-        #endregion /редактирование
-
         [HttpGet]
         [Authorize]
         public ActionResult Book(int? id)
@@ -145,5 +113,37 @@ namespace HotelWebApplication.Controllers
 
             return RedirectToAction("All", "Room");
         }
+
+        #region редактирование
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null) return HttpNotFound();
+
+            var room = _db.Rooms.Find(id);
+            if (room != null) return View(room);
+
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Room model, HttpPostedFileBase imageData)
+        {
+            if (imageData != null)
+                model.PhotoUrl = ImageSaveHelper.SaveImage(imageData);
+
+            if (ModelState.IsValid)
+            {
+                _db.Entry(model).State = EntityState.Modified;
+                _db.SaveChanges();
+
+                return RedirectToAction("All");
+            }
+
+            return View("Edit", model);
+        }
+
+        #endregion /редактирование
     }
 }

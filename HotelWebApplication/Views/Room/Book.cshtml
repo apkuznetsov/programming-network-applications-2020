@@ -24,14 +24,14 @@
 
                 @*номер комнаты*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.RoomId, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.RoomId, new {@class = "control-label col-md-2"})
                     <text disabled>@ViewBag.RoomId</text>
                     <input type="hidden" value="@ViewBag.RoomId" name="RoomId"/>
                 </div>
 
                 @*серия и номер паспорта клиента*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ClientPassportSeriesAndNumber, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.ClientPassportSeriesAndNumber, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.ClientPassportSeriesAndNumber, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.OrderPrice, "", new {@class = "text-danger"})
@@ -40,7 +40,7 @@
 
                 @*ФИО клиента*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ClientFullName, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.ClientFullName, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.ClientFullName, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.OrderPrice, "", new {@class = "text-danger"})
@@ -54,7 +54,7 @@
 
                 @*дата заезда*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ArrivalDateTime, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.ArrivalDateTime, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         <input type="date" name="ArrivalDateTime" min="2020-03-03" max="2020-03-31" class="form-control">
                         @Html.ValidationMessageFor(model => model.ArrivalDateTime, "", new {@class = "text-danger"})
@@ -63,7 +63,7 @@
 
                 @*дата отезда*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DepartureDateTime, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.DepartureDateTime, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         <input type="date" name="DepartureDateTime" min="2020-01-31" max="2020-02-29" class="form-control">
                         @Html.ValidationMessageFor(model => model.DepartureDateTime, "", new {@class = "text-danger"})
@@ -72,7 +72,7 @@
 
                 @*стоимость заказа*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.OrderPrice, htmlAttributes: new {@class = "control-label col-md-2"})
+                    @Html.LabelFor(model => model.OrderPrice, new {@class = "control-label col-md-2"})
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.OrderPrice, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.OrderPrice, "", new {@class = "text-danger"})

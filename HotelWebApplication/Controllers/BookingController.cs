@@ -30,10 +30,7 @@ namespace HotelWebApplication.Controllers
         {
             var b = _db.Bookings.Find(id);
 
-            if (b == null)
-            {
-                return HttpNotFound();
-            }
+            if (b == null) return HttpNotFound();
 
             _db.Bookings.Remove(b);
             _db.SaveChanges();
