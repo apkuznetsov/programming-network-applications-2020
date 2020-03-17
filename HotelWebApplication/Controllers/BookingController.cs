@@ -1,44 +1,44 @@
-﻿using HotelWebApplication.Dal;
-using HotelWebApplication.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using HotelWebApplication.Dal;
+using HotelWebApplication.Models;
 
 namespace HotelWebApplication.Controllers
 {
     public class BookingController : Controller
     {
-        private HotelContext db = new HotelContext();
+        private readonly HotelContext _db = new HotelContext();
 
-        [Authorize()]
+        [Authorize]
         public ActionResult Index()
         {
             return RedirectToAction("All", "Booking");
         }
 
-        [Authorize()]
+        [Authorize]
         public ActionResult All()
         {
-            IEnumerable<Booking> bookings = db.Bookings;
+            IEnumerable<Booking> bookings = _db.Bookings;
             ViewBag.Bookings = bookings;
 
             return View();
         }
 
         [HttpGet]
-        [Authorize()]
+        [Authorize]
         public ActionResult Delete(int id)
         {
-            Booking b = db.Bookings.Find(id);
+            var b = _db.Bookings.Find(id);
 
             if (b == null)
-                return HttpNotFound();
-            else
             {
-                db.Bookings.Remove(b);
-                db.SaveChanges();
+                return HttpNotFound();
             }
 
-            return RedirectToAction("All", "Hotel");
+            _db.Bookings.Remove(b);
+            _db.SaveChanges();
+
+            return RedirectToAction("All", "Booking");
         }
     }
 }

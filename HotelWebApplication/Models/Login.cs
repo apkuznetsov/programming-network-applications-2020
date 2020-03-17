@@ -4,9 +4,7 @@ namespace HotelWebApplication.Models
 {
     public class Login
     {
-        [Required]
-        [Display(Name = "Логин")]
-        public string Name { get; set; }
+        [Required] [Display(Name = "Логин")] public string Name { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

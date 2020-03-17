@@ -4,8 +4,7 @@ namespace HotelWebApplication.Models
 {
     public class Room
     {
-        [Key]
-        public int Id { get; set; }
+        [Key] public int Id { get; set; }
 
         [Display(Name = "Название")]
         [Required(ErrorMessage = "Введите название")]
@@ -22,8 +21,7 @@ namespace HotelWebApplication.Models
         [Range(0, 10000)]
         public int CostPerDay { get; set; }
 
-        [Display(Name = "Изображение")]
-        public string PhotoUrl { get; set; }
+        [Display(Name = "Изображение")] public string PhotoUrl { get; set; }
 
         [Display(Name = "Описание")]
         [Required(ErrorMessage = "Добавьте описание")]

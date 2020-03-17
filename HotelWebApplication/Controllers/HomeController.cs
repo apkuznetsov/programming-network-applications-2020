@@ -1,14 +1,14 @@
-﻿using HotelWebApplication.Dal;
-using HotelWebApplication.Models;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using HotelWebApplication.Dal;
+using HotelWebApplication.Models;
 
 namespace HotelWebApplication.Controllers
 {
     public class HomeController : Controller
     {
-        private HotelContext db = new HotelContext();
+        private readonly HotelContext _db = new HotelContext();
 
         public ActionResult Index()
         {
@@ -24,23 +24,20 @@ namespace HotelWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Login model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+            // поиск пользователя в БД
+            var user = _db.Users.FirstOrDefault(
+                u => u.Login == model.Name &&
+                     u.Password == model.Password);
+
+
+            if (user != null)
             {
-                // поиск пользователя в БД
-                User user = null;
-                user = db.Users.FirstOrDefault(
-                    u => u.Login == model.Name &&
-                    u.Password == model.Password);
-
-
-                if (user != null)
-                {
-                    FormsAuthentication.SetAuthCookie(model.Name, true);
-                    return RedirectToAction("All", "Room");
-                }
-                else
-                    ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
+                FormsAuthentication.SetAuthCookie(model.Name, true);
+                return RedirectToAction("All", "Room");
             }
+
+            ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
 
             return View(model);
         }
