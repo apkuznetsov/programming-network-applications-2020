@@ -14,14 +14,13 @@ namespace HotelWebApp.Controllers
     {
         private readonly HotelContext _db = new HotelContext();
 
-        //[Authorize]
+        [Authorize]
         public ActionResult Index()
         {
             return RedirectToAction("All", "Room");
         }
 
-        [HttpGet]
-        //[Authorize]
+        [Authorize]
         public ActionResult All()
         {
             IEnumerable<Room> rooms = _db.Rooms;
@@ -30,8 +29,7 @@ namespace HotelWebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult Search(string search)
         {
             IEnumerable<Room> rooms = _db.Rooms.Where(
@@ -41,8 +39,7 @@ namespace HotelWebApp.Controllers
             return PartialView(rooms);
         }
 
-        [HttpGet]
-        //[Authorize]
+        [Authorize]
         public ActionResult Book(int? id)
         {
             if (id == null)
@@ -59,8 +56,7 @@ namespace HotelWebApp.Controllers
             return HttpNotFound();
         }
 
-        [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult Book(Booking model)
         {
             model.BookingDateTime = DateTime.Now;
@@ -116,8 +112,7 @@ namespace HotelWebApp.Controllers
 
         #region редактирование
 
-        [HttpGet]
-        //[Authorize]
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null) return HttpNotFound();
@@ -128,22 +123,17 @@ namespace HotelWebApp.Controllers
             return HttpNotFound();
         }
 
-        [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult Edit(Room model, HttpPostedFileBase imageData)
         {
             if (imageData != null)
                 model.PhotoUrl = ImageSaveHelper.SaveImage(imageData);
 
-            if (ModelState.IsValid)
-            {
-                _db.Entry(model).State = EntityState.Modified;
-                _db.SaveChanges();
+            if (!ModelState.IsValid) return View("Edit", model);
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
 
-                return RedirectToAction("All");
-            }
-
-            return View("Edit", model);
+            return RedirectToAction("All");
         }
 
         #endregion /редактирование

@@ -23,8 +23,7 @@ namespace HotelWebApp.Controllers
 
             return View();
         }
-
-        [HttpGet]
+        
         [Authorize]
         public ActionResult Delete(int id)
         {
