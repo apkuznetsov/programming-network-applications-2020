@@ -17,12 +17,6 @@ namespace HotelWebApp.Controllers
         private readonly HotelContext _db = new HotelContext();
 
         [Authorize]
-        public ActionResult Index()
-        {
-            return RedirectToAction("All", "Room");
-        }
-
-        [Authorize]
         public ActionResult All()
         {
             IEnumerable<Room> rooms = _db.Rooms;
@@ -140,27 +134,30 @@ namespace HotelWebApp.Controllers
 
         #endregion /редактирование
 
-        public ActionResult Pagination()
+        [Authorize]
+        public ActionResult Index()
         {
             PagedData<Room> pagedRooms = new PagedData<Room>
             {
-                Data = _db.Rooms.OrderBy(p => p.Name).Take(PageSize).ToList(),
-                TotalPages = Convert.ToInt32(Math.Ceiling((double) _db.Rooms.Count() / PageSize))
+                Data = _db.Rooms.OrderBy(r => r.Name).Skip(PageSize * 0).Take(PageSize).ToList(),
+                TotalPages = Convert.ToInt32(Math.Ceiling((double) _db.Rooms.Count() / PageSize)),
+                CurrentPage = 1
             };
 
             return View(pagedRooms);
         }
 
-        public ActionResult Page(int page)
+        [Authorize]
+        public ActionResult RoomsList(int pageNumber)
         {
             PagedData<Room> pagedRooms = new PagedData<Room>
             {
-                Data = _db.Rooms.OrderBy(p => p.Name).Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
+                Data = _db.Rooms.OrderBy(r => r.Name).Skip(PageSize * (pageNumber - 1)).Take(PageSize).ToList(),
                 TotalPages = Convert.ToInt32(Math.Ceiling((double) _db.Rooms.Count() / PageSize)),
-                CurrentPage = page
+                CurrentPage = pageNumber
             };
 
-            return PartialView(pagedRooms);
+            return PartialView("RoomsListPartial", pagedRooms);
         }
     }
 }
