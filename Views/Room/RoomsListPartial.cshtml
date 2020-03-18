@@ -55,7 +55,14 @@
         <td colspan="7">
             @for (int pageNum = 1; pageNum <= Model.TotalPages; pageNum++)
             {
-                <a class="page-number" href="javascript:void();">@pageNum</a>
+                if (pageNum == Model.CurrentPage)
+                {
+                    @pageNum
+                }
+                else
+                {
+                    <a class="page-number" href="">@pageNum</a>
+                }
             }
         </td>
     </tr>
