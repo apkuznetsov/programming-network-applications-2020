@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\user\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\user\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_HotelWebApp.-1858856924.00" t="ExcludeRecursive" />
-    <e p="D:\repos\App\HotelWebApp" t="IncludeRecursive">
+    <e p="C:\Users\user\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_HotelWebApp.1361116785.00" t="ExcludeRecursive" />
+    <e p="D:\repos\programming-network-applications-2020" t="IncludeRecursive">
       <e p="App_Data" t="Include" />
       <e p="App_Start" t="Include">
         <e p="BundleConfig.cs" t="Include" />
