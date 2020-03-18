@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HotelWebApp.Dal;
@@ -149,6 +149,18 @@ namespace HotelWebApp.Controllers
             };
 
             return View(pagedRooms);
+        }
+
+        public ActionResult Page(int page)
+        {
+            PagedData<Room> pagedRooms = new PagedData<Room>
+            {
+                Data = _db.Rooms.OrderBy(p => p.Name).Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
+                TotalPages = Convert.ToInt32(Math.Ceiling((double) _db.Rooms.Count() / PageSize)),
+                CurrentPage = page
+            };
+
+            return PartialView(pagedRooms);
         }
     }
 }
