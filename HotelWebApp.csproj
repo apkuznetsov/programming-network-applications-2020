@@ -135,6 +135,7 @@
             <DependentUpon>Global.asax</DependentUpon>
         </Compile>
         <Compile Include="Helpers\ImageSaveHelper.cs" />
+        <Compile Include="Helpers\PagedData.cs" />
         <Compile Include="Models\Booking.cs" />
         <Compile Include="Models\Client.cs" />
         <Compile Include="Models\Login.cs" />

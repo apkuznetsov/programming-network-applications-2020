@@ -45,6 +45,7 @@
       <e p="Global.asax.cs" t="Include" />
       <e p="Helpers" t="Include">
         <e p="ImageSaveHelper.cs" t="Include" />
+        <e p="PagedData.cs" t="Include" />
       </e>
       <e p="HotelWebApp.csproj" t="IncludeRecursive" />
       <e p="HotelWebApp.sln" t="IncludeFlat" />
