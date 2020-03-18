@@ -12,6 +12,8 @@ namespace HotelWebApp.Controllers
 {
     public class RoomController : Controller
     {
+        private static readonly int PageSize = 5;
+
         private readonly HotelContext _db = new HotelContext();
 
         [Authorize]
@@ -137,5 +139,16 @@ namespace HotelWebApp.Controllers
         }
 
         #endregion /редактирование
+
+        public ActionResult Pagination()
+        {
+            PagedData<Room> pagedRooms = new PagedData<Room>
+            {
+                Data = _db.Rooms.OrderBy(p => p.Name).Take(PageSize).ToList(),
+                TotalPages = Convert.ToInt32(Math.Ceiling((double) _db.Rooms.Count() / PageSize))
+            };
+
+            return View(pagedRooms);
+        }
     }
 }
