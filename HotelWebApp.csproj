@@ -172,6 +172,7 @@
         <Content Include="Views\Client\All.cshtml" />
         <Content Include="Views\Room\All.cshtml" />
         <Content Include="Views\Room\Book.cshtml" />
+        <Content Include="Views\Room\Page.cshtml" />
         <Content Include="Views\Room\Search.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">
