@@ -1,0 +1,29 @@
+﻿@model HotelWebApp.Helpers.PagedData<HotelWebApp.Models.Room>
+
+@Scripts.Render("~/scripts/jquery-3.3.1.js")
+<script type="text/javascript">
+        $().ready(function () {
+            $(".page-number").click(function () {
+                var page = parseInt($(this).html());  
+                $.ajax({
+                    url: '@Url.Action("RoomsList")',
+                    data: { "pageNumber": page },
+                    success: function (data) {
+                        $("#rooms-list").html(data);
+                    }
+                });
+            });
+        });
+</script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h1>Список номеров</h1>
+
+    <div id="rooms-list">
+        @Html.Partial("RoomsListPartial")
+    </div>
+</div>

@@ -96,7 +96,7 @@
           <e p="All.cshtml" t="Include" />
           <e p="Book.cshtml" t="Include" />
           <e p="Edit.cshtml" t="Include" />
-          <e p="Page.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
           <e p="Search.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
