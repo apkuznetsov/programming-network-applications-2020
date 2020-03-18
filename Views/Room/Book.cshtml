@@ -1,0 +1,95 @@
+﻿@model HotelWebApp.Models.Booking
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-info tiny-panel">
+
+    <div class="panel panel-heading">
+        <div class="div-for-h1">
+            <h1>Забронировать</h1>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @using (Html.BeginForm("Book", "Room", FormMethod.Post, new {enctype = "multipart/form-data"}))
+        {
+            <form>
+
+                @*ИН*@
+                <div>
+                    @Html.HiddenFor(model => model.Id)
+                </div>
+
+                @*номер комнаты*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoomId, new {@class = "control-label col-md-2"})
+                    <text disabled>@ViewBag.RoomId</text>
+                    <input type="hidden" value="@ViewBag.RoomId" name="RoomId"/>
+                </div>
+
+                @*серия и номер паспорта клиента*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientPassportSeriesAndNumber, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClientPassportSeriesAndNumber, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.OrderPrice, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                @*ФИО клиента*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientFullName, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClientFullName, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.OrderPrice, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                @*дата бронирования*@
+                <div>
+                    @Html.HiddenFor(model => model.BookingDateTime)
+                </div>
+
+                @*дата заезда*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ArrivalDateTime, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        <input type="date" name="ArrivalDateTime" min="2020-03-03" max="2020-03-31" class="form-control">
+                        @Html.ValidationMessageFor(model => model.ArrivalDateTime, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                @*дата отезда*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DepartureDateTime, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        <input type="date" name="DepartureDateTime" min="2020-01-31" max="2020-02-29" class="form-control">
+                        @Html.ValidationMessageFor(model => model.DepartureDateTime, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                @*стоимость заказа*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OrderPrice, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.OrderPrice, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.OrderPrice, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div>
+                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Забронировать" class="btn btn-default"/>
+                    </div>
+                </div>
+
+            </form>
+        }
+    </div>
+</div>

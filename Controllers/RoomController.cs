@@ -1,0 +1,151 @@
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Web;
+using System.Web.Mvc;
+using HotelWebApp.Dal;
+using HotelWebApp.Helpers;
+using HotelWebApp.Models;
+
+namespace HotelWebApp.Controllers
+{
+    public class RoomController : Controller
+    {
+        private readonly HotelContext _db = new HotelContext();
+
+        //[Authorize]
+        public ActionResult Index()
+        {
+            return RedirectToAction("All", "Room");
+        }
+
+        [HttpGet]
+        //[Authorize]
+        public ActionResult All()
+        {
+            IEnumerable<Room> rooms = _db.Rooms;
+            ViewBag.Rooms = rooms;
+
+            return View();
+        }
+
+        [HttpPost]
+        //[Authorize]
+        public ActionResult Search(string search)
+        {
+            IEnumerable<Room> rooms = _db.Rooms.Where(
+                r => r.Name.Contains(search) ||
+                     r.Description.Contains(search)).ToList();
+
+            return PartialView(rooms);
+        }
+
+        [HttpGet]
+        //[Authorize]
+        public ActionResult Book(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+
+            var room = _db.Rooms.Find(id);
+            if (room != null)
+            {
+                ViewBag.RoomId = room.Id;
+
+                return View();
+            }
+
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        //[Authorize]
+        public ActionResult Book(Booking model)
+        {
+            model.BookingDateTime = DateTime.Now;
+
+            #region проверка номера комнаты
+
+            var room = _db.Rooms.FirstOrDefault(
+                r => r.Id == model.RoomId);
+
+            if (room == null)
+            {
+                ModelState.AddModelError(string.Empty, "Комната под таким номером не существует");
+                return View("Book", model);
+            }
+
+            #endregion /проверка номера комнаты
+
+            #region проверка клиента
+
+            var client = _db.Clients.FirstOrDefault(
+                c => c.PassportSeriesAndNumber == model.ClientPassportSeriesAndNumber);
+
+            if (client == null) // если нет такого -- создаём
+            {
+                var passportSeriesAndNumber = model.ClientPassportSeriesAndNumber;
+                var fullName = model.ClientFullName;
+                var c = new Client
+                {
+                    PassportSeriesAndNumber = passportSeriesAndNumber,
+                    FullName = fullName
+                };
+
+                _db.Clients.Add(c);
+            }
+            else // если есть -- проверяем ФИО
+            {
+                if (client.FullName != model.ClientFullName)
+                {
+                    ModelState.AddModelError(string.Empty,
+                        "ФИО клиента не соответсвует серии и номеру паспорта в базе");
+                    model.ClientFullName = client.FullName;
+                    return View("Book", model);
+                }
+            }
+
+            #endregion /проверка клиента
+
+            _db.Bookings.Add(model);
+            _db.SaveChanges();
+
+            return RedirectToAction("All", "Room");
+        }
+
+        #region редактирование
+
+        [HttpGet]
+        //[Authorize]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null) return HttpNotFound();
+
+            var room = _db.Rooms.Find(id);
+            if (room != null) return View(room);
+
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        //[Authorize]
+        public ActionResult Edit(Room model, HttpPostedFileBase imageData)
+        {
+            if (imageData != null)
+                model.PhotoUrl = ImageSaveHelper.SaveImage(imageData);
+
+            if (ModelState.IsValid)
+            {
+                _db.Entry(model).State = EntityState.Modified;
+                _db.SaveChanges();
+
+                return RedirectToAction("All");
+            }
+
+            return View("Edit", model);
+        }
+
+        #endregion /редактирование
+    }
+}
