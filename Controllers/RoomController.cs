@@ -157,7 +157,7 @@ namespace HotelWebApp.Controllers
                 CurrentPage = pageNumber
             };
 
-            return PartialView("RoomsListPartial", pagedRooms);
+            return PartialView("RoomsList", pagedRooms);
         }
     }
 }

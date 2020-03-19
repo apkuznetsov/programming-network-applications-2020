@@ -4,7 +4,7 @@
 <script type="text/javascript">
         $().ready(function () {
             $(".page-number").click(function () {
-                var page = parseInt($(this).html());  
+                const page = parseInt($(this).html());  
                 $.ajax({
                     url: '@Url.Action("RoomsList")',
                     data: { "pageNumber": page },
@@ -24,6 +24,6 @@
     <h1>Список номеров</h1>
 
     <div id="rooms-list">
-        @Html.Partial("RoomsListPartial")
+        @Html.Partial("RoomsList")
     </div>
 </div>
