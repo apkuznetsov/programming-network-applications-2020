@@ -26,6 +26,7 @@ namespace HotelWebApp.Controllers
         }
 
         [Authorize]
+        [HttpPost]
         public ActionResult Search(string search)
         {
             IEnumerable<Room> rooms = _db.Rooms.Where(
@@ -148,13 +149,14 @@ namespace HotelWebApp.Controllers
         }
 
         [Authorize]
-        public ActionResult RoomsList(int pageNumber)
+        [HttpPost]
+        public ActionResult RoomsList(int pageNum)
         {
             PagedData<Room> pagedRooms = new PagedData<Room>
             {
-                Data = _db.Rooms.OrderBy(r => r.Name).Skip(PageSize * (pageNumber - 1)).Take(PageSize).ToList(),
+                Data = _db.Rooms.OrderBy(r => r.Name).Skip(PageSize * (pageNum - 1)).Take(PageSize).ToList(),
                 TotalPages = Convert.ToInt32(Math.Ceiling((double) _db.Rooms.Count() / PageSize)),
-                CurrentPage = pageNumber
+                CurrentPage = pageNum
             };
 
             return PartialView("RoomsList", pagedRooms);
