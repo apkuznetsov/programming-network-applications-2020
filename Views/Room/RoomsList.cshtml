@@ -49,22 +49,4 @@
             </td>
         </tr>
     }
-
-    <tfoot>
-    <tr>
-        <td colspan="7">
-            @for (int pageNum = 1; pageNum <= Model.TotalPages; pageNum++)
-            {
-                if (pageNum == Model.CurrentPage)
-                {
-                    @pageNum
-                }
-                else
-                {
-                    <a class="page-number" href="">@pageNum</a>
-                }
-            }
-        </td>
-    </tr>
-    </tfoot>
 </table>
