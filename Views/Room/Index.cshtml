@@ -1,21 +1,5 @@
 ﻿@model HotelWebApp.Helpers.PagedData<HotelWebApp.Models.Room>
 
-@Scripts.Render("~/scripts/jquery-3.3.1.js")
-<script type="text/javascript">
-        $().ready(function () {
-            $(".page-number").click(function () {
-                const page = parseInt($(this).html());  
-                $.ajax({
-                    url: '@Url.Action("RoomsList")',
-                    data: { "pageNumber": page },
-                    success: function (data) {
-                        $("#rooms-list").html(data);
-                    }
-                });
-            });
-        });
-</script>
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -26,4 +10,27 @@
     <div id="rooms-list">
         @Html.Partial("RoomsList")
     </div>
+
+    @Scripts.Render("~/scripts/jquery-3.3.1.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+
+    @using (Ajax.BeginForm("RoomsList", new AjaxOptions
+    {
+        UpdateTargetId = "rooms-list",
+    }))
+    {
+        <tfoot>
+        <tr>
+            <td colspan="7">
+                @for (int pageNum = 1; pageNum <= Model.TotalPages; pageNum++)
+                {
+                    <input type="submit"
+                           class="btn btn-default"
+                           name="pageNum"
+                           value="@pageNum"/>
+                }
+            </td>
+        </tr>
+        </tfoot>
+    }
 </div>
