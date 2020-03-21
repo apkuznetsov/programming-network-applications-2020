@@ -54,7 +54,7 @@ namespace HotelWebApp.Controllers
         }
 
         [Authorize]
-        public ActionResult Book(Booking model)
+        public ActionResult Booking(Booking model)
         {
             model.BookingDateTime = DateTime.Now;
 
@@ -121,7 +121,7 @@ namespace HotelWebApp.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(Room model, HttpPostedFileBase imageData)
+        public ActionResult Editing(Room model, HttpPostedFileBase imageData)
         {
             if (imageData != null)
                 model.PhotoUrl = ImageSaveHelper.SaveImage(imageData);

@@ -1,4 +1,4 @@
-﻿@model HotelWebApp.Models.Booking
+@model HotelWebApp.Models.Booking
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,7 +13,7 @@
     </div>
 
     <div class="panel-body">
-        @using (Html.BeginForm("Book", "Room", FormMethod.Post, new {enctype = "multipart/form-data"}))
+        @using (Html.BeginForm("Booking", "Room", FormMethod.Post, new {enctype = "multipart/form-data"}))
         {
             <form>
 
