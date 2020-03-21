@@ -24,6 +24,8 @@
 
     @foreach (var r in Model.Data)
     {
+        string roomDiv = "room-descr-" + r.Id;
+
         <tr>
             <td>
                 <p>@r.Name</p>
@@ -35,7 +37,9 @@
                 <p>@r.CostPerDay</p>
             </td>
             <td>
-                <p>@r.Description</p>
+                <p id="@roomDiv">
+                    @Ajax.ActionLink("Запросить описание", "GetDescription", new {id = r.Id}, new AjaxOptions {UpdateTargetId = @roomDiv})
+                </p>
             </td>
             <td>
                 <img src="@r.PhotoUrl" alt="Изображение"/>

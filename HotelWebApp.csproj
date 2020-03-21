@@ -466,6 +466,7 @@
         <Content Include="Views\Client\All.cshtml" />
         <Content Include="Views\Room\All.cshtml" />
         <Content Include="Views\Room\Book.cshtml" />
+        <Content Include="Views\Room\GetDescription.cshtml" />
         <Content Include="Views\Room\RoomsList.cshtml" />
         <Content Include="Views\Room\Index.cshtml" />
         <Content Include="Views\Room\Search.cshtml" />

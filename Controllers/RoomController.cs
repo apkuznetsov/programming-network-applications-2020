@@ -161,5 +161,12 @@ namespace HotelWebApp.Controllers
 
             return PartialView("RoomsList", pagedRooms);
         }
+
+        [Authorize]
+        public ActionResult GetDescription(int id)
+        {
+            Room room = _db.Rooms.Find(id);
+            return PartialView(room);
+        }
     }
 }
